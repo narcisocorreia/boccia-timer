@@ -1,0 +1,20 @@
+<mat-card class="player-card" [ngClass]="color">
+  <!-- Clickable areas -->
+  <div class="click-area left" (click)="decrement()"></div>
+  <div class="click-area right" (click)="increment()"></div>
+
+  <!-- Main card content -->
+  <div class="card-content">
+    <h2>{{ name }}</h2>
+    <div class="score">{{ score }}</div>
+
+    <!-- Timer -->
+    <div class="timer" (click)="toggleTimer()">{{ formattedTimer }}</div>
+
+    <!-- Icons row -->
+    <div class="icons-row">
+      <img *ngFor="let icon of iconStates; let i = index" src="assets/ball.svg" alt="icon" class="icon"
+        [ngClass]="{ used: icon }" (click)="toggleIcon(i)" />
+    </div>
+  </div>
+</mat-card>
